@@ -9,35 +9,31 @@ import java.util.Scanner;
 
 public class exercise {
     public static void main(String[] args) {
-        // prompt for number of people
-        System.out.print("How many people? ");
-
         // create new scanner
         Scanner input = new Scanner(System.in);
 
-        // read number of people
-        int people = Integer.parseInt(input.nextLine());
+        // prompt for length
+        System.out.print("Enter length of room: ");
 
-        // prompt for number of pizzas
-        System.out.print("How many pizzas do you have? ");
+        // read length
+        double length = input.nextDouble();
 
-        // read number of pizzas
-        int pizzas = Integer.parseInt(input.nextLine());
+        // prompt for width
+        System.out.print("Enter width of room: ");
 
-        // prompt for slices per pizza
-        System.out.print("How many slices per pizza? ");
+        // read width
+        double width = input.nextDouble();
 
-        // read number of slices per pizza
-        int slices = Integer.parseInt(input.nextLine());
+        // calculate area
+        double area = length * width;
 
-        // calculate totals
-        int total = slices * pizzas;
-        int slicesPerPerson = total / people;
-        int slicesLeft = total % people;
+        // init constant
+        double gallonCovers = 350;
 
-        // output totals
-        System.out.println(people + " people with " + pizzas + " pieces of pizza (" + total + " slices)" );
-        System.out.println("Each person gets " + slicesPerPerson + " pieces of pizza.");
-        System.out.println("There are " + slicesLeft + " leftover pieces.");
+        // calculate total number of gallons needed
+        int numGallons = (int)Math.ceil(area / gallonCovers);
+
+        // output results
+        System.out.print("You will need to purchase " + numGallons + " gallons of paint to cover " + (int)area +" square feet.");
     }
 }
